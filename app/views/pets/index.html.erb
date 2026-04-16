@@ -1,0 +1,48 @@
+<h1 class="mb-4 fw-bold">Pets</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Owner</th>
+        <th>Birth Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pets.each do |pet| %>
+        <tr>
+
+          <!-- Name -->
+          <td>
+            <%= link_to pet.name, pet %>
+          </td>
+
+          <!-- Species -->
+          <td>
+            <span class="badge bg-info text-dark">
+              <%= pet.species %>
+            </span>
+          </td>
+
+          <!-- Breed -->
+          <td><%= pet.breed %></td>
+
+          <!-- Owner -->
+          <td>
+            <%= link_to "#{pet.owner.first_name} #{pet.owner.last_name}", pet.owner %>
+          </td>
+
+          <!-- Birth Date -->
+          <td>
+            <%= pet.date_of_birth&.strftime("%B %d, %Y") %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

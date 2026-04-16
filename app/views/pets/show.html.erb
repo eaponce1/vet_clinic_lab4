@@ -1,0 +1,21 @@
+<h1><%= @pet.name %></h1>
+
+<p><strong>Species:</strong> <%= @pet.species %></p>
+<p><strong>Breed:</strong> <%= @pet.breed %></p>
+<p><strong>Birth Date:</strong> <%= @pet.date_of_birth.strftime("%B %d, %Y") %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= link_to @pet.owner.first_name, @pet.owner %>
+</p>
+
+<h2 class="mt-4">Appointments</h2>
+
+<ul>
+  <% @pet.appointments.each do |a| %>
+    <li>
+      <%= link_to a.reason, a %> -
+      <%= a.date.strftime("%B %d, %Y") %>
+    </li>
+  <% end %>
+</ul>

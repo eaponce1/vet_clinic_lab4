@@ -1,0 +1,12 @@
+<h1><%= @owner.first_name %> <%= @owner.last_name %></h1>
+
+<p>Email: <%= @owner.email %></p>
+<p>Teléfono: <%= @owner.phone %></p>
+
+<h2>Mascotas</h2>
+
+<ul>
+  <% @owner.pets.each do |pet| %>
+    <li><%= link_to pet.name, pet %></li>
+  <% end %>
+</ul>
